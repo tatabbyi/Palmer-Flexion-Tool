@@ -20,3 +20,8 @@ def build_model(input_shape=(128, 128, 3), num_classes=2):
         #turns output into probabilties
         layers.Dense(num_classes, activation='softmax')
     ])
+
+    model.compile(optimizer='adam',
+                  loss='sparse_categorical_crossentropy',
+                  metrics=['accuracy'])
+    return model
