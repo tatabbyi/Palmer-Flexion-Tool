@@ -14,3 +14,7 @@ img = image.load_img(user_image, target_size=(128,128))
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0) / 255.0
 
+pred = model.predict(X)
+predicted_class = class_names[np.argmax(pred)]
+print(f"Predicted Class: {predicted_class}")
+
