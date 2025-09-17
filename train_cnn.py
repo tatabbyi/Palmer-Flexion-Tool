@@ -1,6 +1,7 @@
-from model_cnn import build_model, load_data
+from model_cnn 
+import build_model,load_data
 
-dataset = load_data("image/")
+dataset, class_names = load_data("image/")
 
 train_size = int(0.8 * len(dataset))
 train_ds = dataset.take(train_size)
