@@ -1,11 +1,23 @@
 import tensorflow as tf
+import numpy as np
+from PIL import Image
+import io
+import cv2
 
 def load_data(data_dir, img_size=(128,128), batch_size=32):
     dataset = tf.keras.utils.image_dataset_from_directory(
         data_dir,
-        image_size=img_size
-        batch_size=batch_size
+        labels='inferred',
+        label_mode='int',
+        image_size=img_size,
+        batch_size=batch_size,
+        shuffle=True,
+        seed=seed,
+        validation_split=validation_split,
+        subset='training'
     )
+
+    
     
     class_names = dataset.class_names
     print("Loaded classes:", class_names)
