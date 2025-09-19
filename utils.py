@@ -5,7 +5,7 @@ import io
 import cv2
 
 def load_data(data_dir, img_size=(128,128), batch_size=32):
-    dataset = tf.keras.utils.image_dataset_from_directory(
+    train_ds = tf.keras.utils.image_dataset_from_directory(
         data_dir,
         labels='inferred',
         label_mode='int',
@@ -31,12 +31,15 @@ def load_data(data_dir, img_size=(128,128), batch_size=32):
 
     
     
-    class_names = dataset.class_names
+    class_names = train_ds.class_names
     print("Loaded classes:", class_names)
+
+    train_ds = train_ds.map(lambda x y: (x / 255.0, y))
+    val_ds = val_ds.map(lambda x, y: (x / 255.0, y))
 
     dataset = dataset.map(lambda x, y: (x/255.0, y))
 
-    return dataset, class_names
+    return train_ds, val_ds, class_names
 
 import cv2
 import numpy as np
