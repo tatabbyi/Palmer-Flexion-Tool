@@ -17,6 +17,18 @@ def load_data(data_dir, img_size=(128,128), batch_size=32):
         subset='training'
     )
 
+    val_ds = tf.keras.utils.image_dataset_from_directory(
+        data_dir,
+        labels='inferred',
+        label_mode='int',
+        batch_size=batch_size,
+        image_size=img_size,
+        shuffle=True,
+        seed=seed,
+        validation_split=validation_split,
+        subset='validation'
+    )
+
     
     
     class_names = dataset.class_names
