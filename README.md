@@ -11,7 +11,7 @@ A small scale machine learning tool, with the intention fo being able to trace k
 
 ## Future Goals
 
-The future of this project will be a fully fleshed out application that is availble to the average individual.
+The future of this project would be to develop a mobile app. I originally wanted INSTRUCT to be a mobile app but that ended up not being what I wanted to learn at the time. I will most likely be using React Native framework for this mobile app. The timeline for starting this will be October 2025.
 
 
 ---
