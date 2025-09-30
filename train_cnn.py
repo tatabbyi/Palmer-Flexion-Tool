@@ -1,13 +1,10 @@
-from model_cnn 
-import build_model,load_data
+from model_cnn import build_model
+from utils import load_data
 
-dataset, class_names = load_data("images/")
+train_ds, test_ds, class_names =  load_data("images/")
 
-train_size = int(0.8 * len(dataset))
-train_ds = dataset.take(train_size)
-test_ds = dataset.skip(train_size)
 #building the model
-model = build_model(num_classes=len(dataset.class_names))
+model = build_model(num_classes=len(class_names))
 #training the modal
 model.fit(train_ds, epochs=10, validation_data=test_ds)
 #saving the model
