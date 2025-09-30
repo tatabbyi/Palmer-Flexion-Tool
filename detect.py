@@ -1,7 +1,7 @@
 import cv2
 import tensorflow as tf
 import numpy as np
-from utils import preprocess_image_bytes
+from utils import preprocess_image
 
 Feedback = {
     "simian": "To be added later with research",
@@ -22,5 +22,12 @@ def detect_local():
             break
 
         cv2.imshow("palm Scanner (Press s)", frame)
+
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q') or key == 27:
+            break
+
+        cap.release()
+        cv2.destroyAllWindows()
         
         
