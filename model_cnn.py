@@ -25,13 +25,6 @@ def build_model(input_shape=(128, 128, 3), num_classes=2):
                   loss='sparse_categorical_crossentropy',
                   metrics=['accuracy'])
     return model
-def load_data(dataset_path="images/", img-size(128,128), batch_size=16):
-    train_ds = tf.keras.utils.image_dataset_from_directory(
-        dataset_path,
-        image_size=img_size,
-        batch_size=batch_size
-    
-    )
-    return train_ds
+
 
 

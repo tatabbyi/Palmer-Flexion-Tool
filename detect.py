@@ -22,7 +22,7 @@ def detect_local():
             break
 
         cv2.imshow("palm Scanner (Press s)", frame)
-
+# listens for key q or esc exits. shows camera and closes window
         key = cv2.waitKey(1) & 0xFF
         if key == ord('q') or key == 27:
             break
