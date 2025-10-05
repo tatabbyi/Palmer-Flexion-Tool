@@ -1,4 +1,4 @@
-#Palmer-Flexion-Tool
+## Palmer-Flexion-Tool
 
 A small scale machine learning tool, with the intention fo being able to trace key identifies to certain genetics through scanning the flexion crease patterns.
 
