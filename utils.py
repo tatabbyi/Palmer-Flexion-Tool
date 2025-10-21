@@ -51,5 +51,5 @@ def preprocess_image(frame):
 
 def show_image_cv2(window_title, frame):
     cv2.imshow(window_title, frame)
-    cv2.waitkey(0)
+    cv2.waiKey(0)
     cv2.destroyAllWindows()
