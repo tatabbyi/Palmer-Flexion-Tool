@@ -6,7 +6,7 @@ train_ds, val_ds, class_names =  load_data("images/")
 #building the model
 model = build_model(num_classes=len(class_names))
 #training the modal
-model.fit(train_ds, epochs=10, validation_data=val_ds)
+model.fit(train_ds, epochs=10,)
 #saving the model
 model.save("palm_model.h5")
 print("Model trained and saved as palm_model.h5")
