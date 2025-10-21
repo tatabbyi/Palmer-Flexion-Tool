@@ -4,7 +4,7 @@ from PIL import Image
 import io
 import cv2
 
-def load_data(data_dir, img_size=(128,128), batch_size=32, validation_split=0.2, seed=1337):
+def load_data(data_dir, img_size=(128,128), batch_size=32, validation_split=0.0, seed=1337):
     train_ds = tf.keras.utils.image_dataset_from_directory(
         data_dir,
         labels='inferred',
@@ -51,5 +51,5 @@ def preprocess_image(frame):
 
 def show_image_cv2(window_title, frame):
     cv2.imshow(window_title, frame)
-    cv2.waiKey(0)
+    cv2.waitKey(0)
     cv2.destroyAllWindows()
