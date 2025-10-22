@@ -4,7 +4,7 @@ from PIL import Image
 import io
 import cv2
 
-def load_data(data_dir, img_size=(128,128), batch_size=32, validation_split=0.0, seed=1337):
+def load_data(data_dir, img_size=(128,128), batch_size=32, seed=1337):
     train_ds = tf.keras.utils.image_dataset_from_directory(
         data_dir,
         labels='inferred',
@@ -12,32 +12,15 @@ def load_data(data_dir, img_size=(128,128), batch_size=32, validation_split=0.0,
         image_size=img_size,
         batch_size=batch_size,
         shuffle=True,
-        seed=seed,
-        validation_split=validation_split,
-        subset='training'
+        seed=seed
     )
-
-    val_ds = tf.keras.utils.image_dataset_from_directory(
-        data_dir,
-        labels='inferred',
-        label_mode='int',
-        batch_size=batch_size,
-        image_size=img_size,
-        shuffle=True,
-        seed=seed,
-        validation_split=validation_split,
-        subset='validation'
-    )
-
-    
     
     class_names = train_ds.class_names
     print("Loaded classes:", class_names)
 
-    train_ds = train_ds.map(lambda x, y: (x / 255.0, y))
-    val_ds = val_ds.map(lambda x, y: (x / 255.0, y))
+    train_ds = train_ds.map(lambda x, y:(x / 255.0, y))
 
-    return train_ds, val_ds, class_names
+    return train_ds, None, class_names
 
 import cv2
 import numpy as np
